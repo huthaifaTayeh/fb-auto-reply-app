@@ -23,6 +23,7 @@ export const renderFbLoginPlugin = () => {
         };
         
         if(typeof facebookInit == 'function'){FB.getLoginStatus(function(response) {
+          console.log("yup")
          statusChangeCallback(response);
         });}
 
