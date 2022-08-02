@@ -4,11 +4,11 @@ export const renderFbLoginPlugin = () => {
   return (
     <>
       <div id="fb-root"></div>
-      <Script strategy='lazyOnload' async defer crossOrigin="anonymous"
+      <script async defer crossOrigin="anonymous"
               src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=370648808391745&autoLogAppEvents=1"
               nonce="z2FdTQwI">
 
-      </Script>
+      </script>
       <Script strategy='lazyOnload'>{`
         window.fbAsyncInit = function () {
           FB.init({
