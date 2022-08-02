@@ -22,9 +22,9 @@ export const renderFbLoginPlugin = () => {
 
         };
         
-        FB.getLoginStatus(function(response) {
+        if(typeof facebookInit == 'function'){FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
-        });
+        });}
 
         (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
