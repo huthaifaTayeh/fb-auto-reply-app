@@ -3,8 +3,8 @@ import {renderFbLoginPlugin} from "../plugins/fbLogin";
 
 function MyApp({ Component, pageProps }) {
   return <>
-    <Component {...pageProps} />
     {renderFbLoginPlugin()}
+    <Component {...pageProps} />
   </>
 }
 

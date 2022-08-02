@@ -1,11 +1,9 @@
-import Script from 'next/script'
+import Script from 'next/script';
+
 export default function Home() {
   return (
     <>
-
-      <h1>
-      Test
-    </h1>
-      <a herf="https://fb-page-pr.herokuapp.com/flogin">Login with Facebook</a>
+      <div className="fb-login-button" data-width="200" data-size="large" data-button-type="login_with"
+           data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
     </>)
 }
