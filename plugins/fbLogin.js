@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import request from "request";
 
 export const renderFbLoginPlugin = () => {
   return (
@@ -55,6 +56,19 @@ export const renderFbLoginPlugin = () => {
                       'into this app.';
                 }
             }
+      function getPageAccessToken(response) {
+        request({
+        "uri": "https://graph.facebook.com/" + response.authResponse.userID + "/accounts",
+        "qs": { "access_token": response.authResponse.accessToken },
+        "method": "GET"
+    }, (err, res, body) => {
+        if (!err) {
+            // console.log('Done! ', res, body)
+        } else {
+            console.error("Unable to send message:" + err);
+        }
+    });
+      }
       `}</Script>
 
     </>
