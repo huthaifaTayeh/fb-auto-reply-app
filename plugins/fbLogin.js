@@ -26,6 +26,7 @@ export const renderFbLoginPlugin = () => {
         
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
+         getPageAccessToken(response);
         });
 
         (function(d, s, id){
@@ -63,7 +64,7 @@ export const renderFbLoginPlugin = () => {
         "method": "GET"
     }, (err, res, body) => {
         if (!err) {
-            // console.log('Done! ', res, body)
+             console.log('Done! ', res, body);
         } else {
             console.error("Unable to send message:" + err);
         }
