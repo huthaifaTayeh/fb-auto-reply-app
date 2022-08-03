@@ -1,6 +1,7 @@
 import Script from 'next/script';
 
 export default function Home() {
+  console.log(window)
   return (
     <>
       <div className="fb-login-button" data-width="200" data-size="large" data-button-type="login_with"
