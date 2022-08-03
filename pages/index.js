@@ -6,8 +6,9 @@ export default function Home() {
   const [pages, setPages] = useState([])
   if(typeof window !== 'undefined'){
     console.log(window)
+    const {pages} = window
     const accessToke = window.FB.getAccessToken()
-    console.log(accessToke)
+    console.log(accessToke, pages)
     if(typeof window.FBUser !== "undefined"){
       console.log("FB SUER EXISTS")
       // setIsConnected(true)
