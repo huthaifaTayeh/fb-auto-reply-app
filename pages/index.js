@@ -10,16 +10,38 @@ export default function Home() {
   return (
     <>
       <div id="status"></div>
-      <Script id="fb-script" onReady={() => {console.log("Ready!")}}>
-        {`
+      <Script id="fb-script" strategy='lazyOnload' onError={() => {
+        console.log("Oopes !")}} onReady={() => {
+        console.log("Ready!")
+      }}>{`
         let user_id;
+        window.fbAsyncInit = function () {
+          FB.init({
+            appId: '370648808391745',
+            cookie: true,
+            xfbml: true,
+            version: '14.0'
+          });
+
+          FB.AppEvents.logPageView();
+
+        };
+        
+        FB.login(function(response) {
+           console.log(response);
+        }, {scope: 'page_messaging'});
+        
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
          user_id = response.authResponse.userID;
         });
+        
         FB.api(user_id + "/accounts", function(response) {
-          console.log(JSON.stringify(response));         
+          console.log(JSON.stringify(response));
+          window.pages = response.data
         });
+
+        
         (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {return;}
@@ -48,8 +70,7 @@ export default function Home() {
                       'into this app.';
                 }
             }
-`}
-      </Script>
+      `}</Script>
       <div className="fb-login-button" data-width="200" data-size="large" data-button-type="login_with"
            data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>
     </>)
