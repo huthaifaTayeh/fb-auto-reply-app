@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <div id="status"></div>
-      <Script>
+      <Script id="fb-script">
         {`
         let user_id;
         FB.getLoginStatus(function(response) {
