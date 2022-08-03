@@ -9,6 +9,7 @@ export default function Home() {
   console.log(pages)
   return (
     <>
+      <div id="status"></div>
       <Script>
         {`
         let user_id;
