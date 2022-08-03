@@ -7,8 +7,9 @@ export default function Home() {
   if(typeof window !== 'undefined'){
     console.log(window)
     const pages = localStorage.getItem('Pages')
-    const accessToke = window.FB.getAccessToken()
-    console.log(accessToke, pages)
+    setPages(pages)
+    setIsConnected(true)
+    console.log(pages)
     if(typeof window.FBUser !== "undefined"){
       console.log("FB SUER EXISTS")
       // setIsConnected(true)
