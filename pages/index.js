@@ -7,6 +7,10 @@ export default function Home() {
   if(typeof window !== 'undefined'){
     console.log(window)
     if(typeof window.FBUser !== "undefined"){
+      console.log("FB SUER EXISTS")
+      const User = window.FBUser
+      console.log(User)
+      // setIsConnected(true)
       if (window.FBUser.isConnected === true) {
         setIsConnected(true)
         console.log("is connected done!")
