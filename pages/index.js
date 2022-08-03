@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <div id="status"></div>
-      <Script id="fb-script" strategy="beforeInteractive" onError={() => {
-        console.log("Oopes !")}} onReady={() => {
+      <Script id="fb-script" strategy="lazyOnload" onError={() => {
+        console.log("Oopes !")}} onLoad={() => {
         console.log("Ready!")
       }}>{`
         let user_id;
