@@ -1,28 +1,14 @@
 import Script from 'next/script';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 export default function Home() {
   const [isConnected, setIsConnected] = useState(false)
   const [pages, setPages] = useState([])
-  if(typeof window !== 'undefined'){
-    console.log(window)
-    const pages = localStorage.getItem('Pages')
-    setPages(pages)
-    setIsConnected(true)
-    console.dir(pages)
-    if(typeof window.FBUser !== "undefined"){
-      console.log("FB SUER EXISTS")
-      // setIsConnected(true)
-      if (window.FBUser.isConnected === true) {
-        setIsConnected(true)
-        console.log("is connected done!")
-      }
-      if (window.FBUser.pages.length > 0) {
-        setPages(window.FBUser.pages)
-        console.log("pages is done!")
-      }
-    }
-  }
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('AccessToken')
+  }, [])
+
   return (
     <>
       {!isConnected && <div className="fb-login-button" data-width="200" data-size="large" data-button-type="login_with"
