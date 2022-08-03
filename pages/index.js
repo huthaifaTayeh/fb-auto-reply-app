@@ -11,9 +11,14 @@ export default function Home() {
     <>
       <Script>
         {`
+        let user_id;
+        FB.getLoginStatus(function(response) {
+         statusChangeCallback(response);
+         user_id = response.authResponse.userID;
+        });
         FB.api(user_id + "/accounts", function(response) {
           console.log(JSON.stringify(response));         
-          setPages(response)
+          setPages(response);
         });
 `}
       </Script>
