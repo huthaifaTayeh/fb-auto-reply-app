@@ -6,10 +6,10 @@ export default function Home() {
   const [pages, setPages] = useState([])
   if(typeof window !== 'undefined'){
     console.log(window)
+    const User = window.FBUser
+    console.log(User)
     if(typeof window.FBUser !== "undefined"){
       console.log("FB SUER EXISTS")
-      const User = window.FBUser
-      console.log(User)
       // setIsConnected(true)
       if (window.FBUser.isConnected === true) {
         setIsConnected(true)
