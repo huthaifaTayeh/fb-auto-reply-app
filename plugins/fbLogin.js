@@ -31,7 +31,6 @@ export const renderFbLoginPlugin = () => {
         
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
-         getPageAccessToken(response);
          user_id = response.authResponse.userID;
         });
         
