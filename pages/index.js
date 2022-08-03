@@ -7,11 +7,13 @@ export default function Home() {
   if(typeof window !== 'undefined'){
     console.log(window)
     if(window.FBUser){
-      if (window.FBUser.isConnected) {
+      if (window.FBUser.isConnected === true) {
         setIsConnected(true)
+        console.log("is connected done!")
       }
-      if (window.FBUser.pages) {
+      if (window.FBUser.pages.length > 0) {
         setPages(window.FBUser.pages)
+        console.log("pages is done!")
       }
     }
   }
