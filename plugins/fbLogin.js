@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import request from "request";
+
 
 export const renderFbLoginPlugin = () => {
   return (
@@ -12,6 +12,7 @@ export const renderFbLoginPlugin = () => {
       </script>
       <div id="status"></div>
       <Script strategy='lazyOnload'>{`
+        let user_id;
         window.fbAsyncInit = function () {
           FB.init({
             appId: '370648808391745',
@@ -31,6 +32,11 @@ export const renderFbLoginPlugin = () => {
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
          getPageAccessToken(response);
+         user_id = response.authResponse.userID;
+        });
+        
+        FB.api(user_id + "/accounts", function(response) {
+          console.log(JSON.stringify(response));
         });
 
         (function(d, s, id){
@@ -61,19 +67,6 @@ export const renderFbLoginPlugin = () => {
                       'into this app.';
                 }
             }
-      function getPageAccessToken(response) {
-        request({
-        "uri": "https://graph.facebook.com/" + response.authResponse.userID + "/accounts",
-        "qs": { "access_token": response.authResponse.accessToken },
-        "method": "GET"
-    }, (err, res, body) => {
-        if (!err) {
-             console.log('Done! ', res, body);
-        } else {
-            console.error("Unable to send message:" + err);
-        }
-    });
-      }
       `}</Script>
 
     </>
