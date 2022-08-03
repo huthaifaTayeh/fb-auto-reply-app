@@ -33,18 +33,11 @@ export const renderFbLoginPlugin = () => {
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
          user_id = response.authResponse.userID;
-         response.status === 'connected'? window.fbuser.isConnected = true: window.fbuser.isConnected = false;
-         window.getIsConnected = function() {
-          return {isConnected: response.status === 'connected'
-         }
         });
 
         FB.api(user_id + "/accounts", function(response) {
           console.log(JSON.stringify(response));
-          window.fbuser.pages = response.data;
-          window.getPages = function() {
-            return {pages: response.data}
-          }
+          window.pages = response.data;
         });
 
         (function(d, s, id){
