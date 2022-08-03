@@ -9,7 +9,7 @@ export default function Home() {
     const pages = localStorage.getItem('Pages')
     setPages(pages)
     setIsConnected(true)
-    console.log(pages)
+    console.dir(pages)
     if(typeof window.FBUser !== "undefined"){
       console.log("FB SUER EXISTS")
       // setIsConnected(true)
@@ -28,6 +28,6 @@ export default function Home() {
       {!isConnected && <div className="fb-login-button" data-width="200" data-size="large" data-button-type="login_with"
             data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>}
 
-      {pages.length > 0 && pages.map(page => <h2 key={page.id}>{page.name}</h2>)}
+      {/*{pages.length > 0 && pages.map(page => <h2 key={page.id}>{page.name}</h2>)}*/}
     </>)
 }
