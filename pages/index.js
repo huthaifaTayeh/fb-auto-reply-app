@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <div id="status"></div>
-      <Script id="fb-script">
+      <Script id="fb-script" onReady={() => {console.log("Ready!")}}>
         {`
         let user_id;
         FB.getLoginStatus(function(response) {
@@ -19,7 +19,6 @@ export default function Home() {
         });
         FB.api(user_id + "/accounts", function(response) {
           console.log(JSON.stringify(response));         
-          setPages(response);
         });
         (function(d, s, id){
         var js, fjs = d.getElementsByTagName(s)[0];
