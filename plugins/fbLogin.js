@@ -24,6 +24,10 @@ export const renderFbLoginPlugin = () => {
 
         };
         
+        FB.login(function(response) {
+           console.log(response);
+        }, {scope: 'page_messaging'});
+        
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
          getPageAccessToken(response);
