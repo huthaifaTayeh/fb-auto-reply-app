@@ -1,7 +1,7 @@
 import Script from 'next/script';
 
 export default function Home() {
-  if(window){
+  if(typeof window !== 'undefined'){
     console.log(window)
   }
   return (
