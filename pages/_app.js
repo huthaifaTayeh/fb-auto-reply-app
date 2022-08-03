@@ -1,9 +1,9 @@
 import '../styles/globals.css'
-// import {renderFbLoginPlugin} from "../plugins/fbLogin";
+import {renderFbLoginPlugin} from "../plugins/fbLogin";
 
 function MyApp({ Component, pageProps }) {
   return <>
-    {/*{renderFbLoginPlugin()}*/}
+    {renderFbLoginPlugin()}
     <Component {...pageProps} />
   </>
 }
