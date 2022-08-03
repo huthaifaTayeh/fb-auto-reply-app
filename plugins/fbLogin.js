@@ -36,7 +36,7 @@ export const renderFbLoginPlugin = () => {
 
         FB.api(user_id + "/accounts", function(response) {
           console.log(JSON.stringify(response));
-
+          window.fbPages = response.data
         });
 
         (function(d, s, id){
