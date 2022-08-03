@@ -5,6 +5,7 @@ export default function Home() {
   const [isConnected, setIsConnected] = useState(false)
   const [pages, setPages] = useState([])
   if(typeof window !== 'undefined'){
+    console.log(window)
     if(window.FBUser){
       if (window.FBUser.isConnected) {
         setIsConnected(true)
