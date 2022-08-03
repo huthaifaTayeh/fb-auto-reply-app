@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <div id="status"></div>
-      <Script id="fb-script" strategy='lazyOnload' onError={() => {
+      <Script id="fb-script" strategy="beforeInteractive" onError={() => {
         console.log("Oopes !")}} onReady={() => {
         console.log("Ready!")
       }}>{`
