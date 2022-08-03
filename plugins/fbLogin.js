@@ -13,6 +13,7 @@ export const renderFbLoginPlugin = () => {
       <div id="status"></div>
       <Script strategy='lazyOnload'>{`
         let user_id;
+        window.FBUser = {isConnected: false, pages: []}
         window.fbAsyncInit = function () {
           FB.init({
             appId: '370648808391745',
@@ -32,7 +33,7 @@ export const renderFbLoginPlugin = () => {
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
          user_id = response.authResponse.userID;
-         window.FBUser.isConnected = true;
+         response.status === 'connected'? window.FBUser.isConnected = true: window.FBUser.isConnected = false;
         });
 
         FB.api(user_id + "/accounts", function(response) {
