@@ -6,7 +6,7 @@ export default function Home() {
   const [pages, setPages] = useState([])
   if(typeof window !== 'undefined'){
     console.log(window)
-    const {pages} = window
+    const pages = localStorage.getItem('Pages')
     const accessToke = window.FB.getAccessToken()
     console.log(accessToke, pages)
     if(typeof window.FBUser !== "undefined"){
