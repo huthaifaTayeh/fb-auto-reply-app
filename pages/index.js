@@ -8,6 +8,7 @@ export default function Home() {
   useEffect(() => {
     const accessToken = localStorage.getItem('AccessToken')
     console.log(accessToken)
+
   }, [])
 
   return (
