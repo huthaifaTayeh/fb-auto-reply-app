@@ -6,9 +6,13 @@ export default function Home() {
   const [pages, setPages] = useState([])
 
   useEffect(() => {
-    const accessToken = localStorage.getItem('AccessToken')
-    console.log(accessToken)
 
+    if(typeof window !== "undefined"){
+      const accessToken = localStorage.getItem('AccessToken')
+      const facebookPage = localStorage.getItem('Pages')
+      const userID = localStorage.getItem('UserID')
+      console.dir({accessToken, facebookPage, userID})
+    }
   }, [])
 
   return (

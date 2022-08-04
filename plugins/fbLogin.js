@@ -12,8 +12,8 @@ export const renderFbLoginPlugin = () => {
       </script>
       <div id="status"></div>
       <Script>{`
-        let user_id;
-        window.fbuser = {isConnected: false, pages: []}
+        let user_id,
+        access_token;
         window.fbAsyncInit = function () {
           FB.init({
             appId: '370648808391745',
@@ -33,12 +33,15 @@ export const renderFbLoginPlugin = () => {
         FB.getLoginStatus(function(response) {
          statusChangeCallback(response);
          user_id = response.authResponse.userID;
-         window.localStorage.setItem('AccessToken', response.authResponse.accessToken);
+         access_token = response.authResponse.accessToken;
+         localStorage.setItem('AccessToken', access_token);
+         localStorage.setItem('UserID', user_id);
         });
 
         FB.api(user_id + "/accounts", function(response) {
           console.log(JSON.stringify(response));
-          
+          const pages = response.data;
+          localStorage.setItem("Pages", pages);
         });
 
         (function(d, s, id){
