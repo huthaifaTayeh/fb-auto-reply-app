@@ -18,7 +18,7 @@ export default function Home() {
       if (typeof facebookPage !== 'undefined') {
         setPages(prevState => prevState.concat(facebookPage));
         console.log("Pages are:\n");
-        console.log(JSON.stringify(facebookPage));
+        console.dir(facebookPage[0]);
       }
     }
   }, [])
