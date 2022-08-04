@@ -1,4 +1,4 @@
-import axios from "axios";
+const axios = require('axios');
 
 export const getFbPages = async (userID, accessToken) => {
   return new Promise((resolve, reject) => {

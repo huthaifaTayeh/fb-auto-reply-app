@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import request from "request";
 import {getFbPages} from "../utils/APIs";
 
 export default function Home() {
