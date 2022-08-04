@@ -11,7 +11,9 @@ export const renderFbLoginPlugin = () => {
 
       </script>
       <div id="status"></div>
-      <Script strategy='lazyOnload'>{`
+      <Script strategy='lazyOnload' onLoad={() => {
+        console.log("loaded!")
+      }}>{`
         let user_id,
         access_token;
         window.fbAsyncInit = function () {
