@@ -42,6 +42,7 @@ export const renderFbLoginPlugin = () => {
           console.log(JSON.stringify(response));
           const pages = response.data;
           localStorage.setItem("Pages", pages);
+          localStorage.setItem("hasBeenFetched", true);
         });
 
         (function(d, s, id){
