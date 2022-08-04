@@ -9,7 +9,7 @@ export default function Home() {
     if (typeof window !== "undefined") {
       const wasFetched = localStorage.getItem("hasBeenFetched")?? false
       if (!wasFetched) {
-        location.reload();
+        setTimeout(() => {location.reload();}, 5000)
       }
       const accessToken = localStorage.getItem('AccessToken')
       const facebookPage = localStorage.getItem('Pages')
