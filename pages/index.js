@@ -68,6 +68,7 @@ export default function Home() {
 
 const HomePage = ({ user, setUser }) => {
   const [pages, setPages] = useState([]);
+  const [selectedPage, setSelectedPage] = useState();
 
   const fetchPages = async () => {
     try {
@@ -91,14 +92,34 @@ const HomePage = ({ user, setUser }) => {
     fetchPages();
   }, []);
 
+  const confirmSelection = () => { 
+    // TODO show subscribe page 
+  }
+
   return (
     <>
+      {/* TODO design page selection */}
       {pages.map((page) => (
         <div key={page.id}>
-          <p>{page.name}</p>
+          <p
+            style={{ color: selectedPage?.id === page.id ? 'blue' : 'black' }}
+            onClick={() => setSelectedPage(page.id)}
+          >
+            {page.name}
+          </p>
         </div>
       ))}
+
+      <button onClick={confirmSelection}>select</button>
       <button onClick={handleLogout}>logout</button>
     </>
   );
 };
+
+// TODO complete component
+const FinalPage = () => { 
+  const subscribePageToApp = () => {  }
+  return (
+
+  )
+ }
