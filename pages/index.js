@@ -69,7 +69,7 @@ export default function Home() {
 const HomePage = ({ user, setUser }) => {
   const [pages, setPages] = useState([]);
 
-  const fetchPages = async (id, token) => {
+  const fetchPages = async () => {
     try {
       const pages = await getFbPages(user.userID, user.accessToken);
       console.log('FETCHED PAGES ARE ', pages);
