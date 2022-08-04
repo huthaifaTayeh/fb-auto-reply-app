@@ -9,7 +9,8 @@ export default function Home() {
     try{
       const pages = await getFbPages(id, token)
       console.log("FETCHED PAGES ARE ", pages)
-      // setPages(prevState => prevState.concat(pages))
+      setPages(prevState => prevState.concat(pages.data))
+      setIsConnected(true)
     } catch (e) {
       console.log(e)
     }
@@ -33,6 +34,6 @@ export default function Home() {
       {!isConnected && <div className="fb-login-button" data-width="200" data-size="large" data-button-type="login_with"
                             data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="true"></div>}
 
-      {/*{pages.length > 0 && pages.map(page => <h2 key={page.id}>{page.name}</h2>)}*/}
+      {pages.length > 0 && pages.map(page => <h2 key={page.id}>{page.name}</h2>)}
     </>)
 }
