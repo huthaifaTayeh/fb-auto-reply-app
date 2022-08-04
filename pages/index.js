@@ -8,6 +8,9 @@ export default function Home() {
   useEffect(() => {
 
     if(typeof window !== "undefined"){
+      if(typeof localStorage.getItem("hasBeenFetched") !== 'undefined'){
+        location.reload();
+      }
       const accessToken = localStorage.getItem('AccessToken')
       const facebookPage = localStorage.getItem('Pages')
       const userID = localStorage.getItem('UserID')
