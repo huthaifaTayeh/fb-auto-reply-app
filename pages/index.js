@@ -1,8 +1,20 @@
 import {useEffect, useState} from "react";
+import request from "request";
+import {getFbPages} from "../utils/APIs";
 
 export default function Home() {
   const [isConnected, setIsConnected] = useState(false)
   const [pages, setPages] = useState([])
+
+  const fetchPages = async (id, token) => {
+    try{
+      const pages = await getFbPages(id, token)
+      console.log("FETCHED PAGES ARE ", pages)
+      // setPages(prevState => prevState.concat(pages))
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   useEffect(() => {
 
@@ -12,14 +24,8 @@ export default function Home() {
         setTimeout(() => {location.reload();}, 5000)
       }
       const accessToken = localStorage.getItem('AccessToken')
-      const facebookPage = localStorage.getItem('Pages')
       const userID = localStorage.getItem('UserID')
-      console.dir({accessToken, facebookPage, userID})
-      if (typeof facebookPage !== 'undefined') {
-        setPages(prevState => prevState.concat(facebookPage));
-        console.log("Pages are:\n");
-        console.log(typeof facebookPage);
-      }
+      fetchPages(userID, accessToken)
     }
   }, [])
 
