@@ -7,7 +7,8 @@ export default function Home() {
   useEffect(() => {
 
     if (typeof window !== "undefined") {
-      if (typeof localStorage.getItem("hasBeenFetched") !== 'undefined') {
+      const wasFetched = localStorage.getItem("hasBeenFetched")?? false
+      if (!wasFetched) {
         location.reload();
       }
       const accessToken = localStorage.getItem('AccessToken')
