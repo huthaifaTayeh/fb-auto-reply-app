@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getFbPages } from '../utils/APIs';
+import StyleClasses from '../styles/Home.module.css'
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -63,7 +64,11 @@ export default function Home() {
     // home page
     return <HomePage user={user} setUser={setUser} />;
   // login page
-  else return <button onClick={handleLogin}>login</button>;
+  else return <div className={StyleClasses.fbLoginContainer}>
+    <div className={StyleClasses.fbLoginBtnContainer}>
+      <button onClick={handleLogin}>login</button>
+    </div>
+  </div>;
 }
 
 const HomePage = ({ user, setUser }) => {
