@@ -221,21 +221,4 @@
         color: black;
     }
 }
-@media (prefers-color-scheme: dark) {
-    .fbLoginBtnContainer {
-        background-color: #ffffff;
-    }
 
-    .card,
-    .footer {
-        border-color: #222;
-    }
-
-    .code {
-        background: #111;
-    }
-
-    .logo img {
-        filter: invert(1);
-    }
-}
