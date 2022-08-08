@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getFbPages } from '../utils/APIs';
 import StyleClasses from '../styles/Home.module.css'
+import { useRouter } from 'next/router'
 
 export default function Home() {
   const [user, setUser] = useState(null);
@@ -75,6 +76,7 @@ export default function Home() {
 const HomePage = ({ user, setUser }) => {
   const [pages, setPages] = useState([]);
   const [selectedPage, setSelectedPage] = useState();
+  const router = useRouter()
 
   const fetchPages = async () => {
     try {
@@ -100,7 +102,10 @@ const HomePage = ({ user, setUser }) => {
 
   const confirmSelection = () => { 
     // TODO show subscribe page
-    return <FinalPage user={user} page={pages.find(page => page.id === selectedPage)} />;
+    router.push({
+      pathname: '/confirmPage',
+      query: {data: JSON.stringify(pages.find(page => page.id === selectedPage))}
+    })
   }
 
   return (
@@ -128,17 +133,3 @@ const HomePage = ({ user, setUser }) => {
 };
 
 // // TODO complete component
-const FinalPage = ({user, page}) => {
-  const subscribePageToApp = () => {  }
-  console.log(page)
-  return (
-    <div className={StyleClasses.mainContainer}>
-      <div className={StyleClasses.pageSelectionContainer}>
-        <h3>Hi, {user}</h3>
-        <div>
-          {page.name}
-        </div>
-      </div>
-    </div>
-  )
- }
