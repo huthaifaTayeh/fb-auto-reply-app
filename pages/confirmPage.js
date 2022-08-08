@@ -1,5 +1,6 @@
 import StyleClasses from "../styles/Home.module.css";
 import { useRouter } from 'next/router'
+import {useEffect} from "react";
 const FinalPage = () => {
   const router = useRouter()
   const routerData = router?.query?.data?? ""
@@ -7,6 +8,14 @@ const FinalPage = () => {
   const page = routerData !== ""? JSON.parse(routerData): {};
   const user = userObject !== "" ? JSON.parse(userObject): {};
   console.log(user)
+
+  useEffect(() => {
+    FB.getLoginStatus((response) => {
+      console.log(response)
+    });
+  }, []);
+
+
   const subscribePageToApp = () => {
     console.log('Subscribed') }
   return (
