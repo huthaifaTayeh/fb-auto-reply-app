@@ -29,7 +29,7 @@
   min-width: 100px;
   max-width: 300px;
   aspect-ratio: 1;
-  border: 0px solid transparent;
+  border: 0 solid transparent;
   border-radius: 50%;
   background-color: #bcbcbc;
 }
