@@ -111,7 +111,7 @@ const HomePage = ({ user, setUser }) => {
           {pages.map((page) => (
           <div key={page.id} className={StyleClasses.pageRow} onClick={() => setSelectedPage(page.id)}>
             <span className={selectedPage === page.id? StyleClasses.selectedPage: ""} />
-            <p className={selectedPage === page.id? StyleClasses.selectedPage: ""} >
+            <p className={selectedPage === page.id? StyleClasses.selectedPageFont: ""} >
               {page.name}
             </p>
 

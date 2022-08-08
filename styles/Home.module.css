@@ -47,7 +47,10 @@
 }
 .selectedPage{
   background-color: rgba(29,78,216,255);
+}
+.selectedPageFont{
   color: rgba(29,78,216,255);
+
 }
 
 .fbLoginBtnContainer{
