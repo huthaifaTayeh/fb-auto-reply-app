@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import {useEffect, useState} from "react";
 const FinalPage = () => {
   const [loggedUser, setUser] = useState({})
+  const [isLoading, setLoading] = useState(true)
   const router = useRouter()
   const routerData = router?.query?.data?? ""
   const userObject = router?.query?.user?? ""
@@ -28,8 +29,11 @@ const FinalPage = () => {
       <div className={StyleClasses.pageInfoContainer}>
         <h2>Hi, {loggedUser.name}</h2>
         <div className={StyleClasses.selectedPageInfo}>
-          {page.name}
+          {page.name} page is selected
         </div>
+        {isLoading && <div className={StyleClasses.loadingTextContainer}><span>Subscribing auto-bot app
+          to {page.name} page</span></div>
+          }
       </div>
     </div>
   )
