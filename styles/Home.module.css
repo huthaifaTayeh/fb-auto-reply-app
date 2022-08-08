@@ -138,7 +138,7 @@
     padding: 0.5em 2em;
     font-size: 1.0em;
 }
-selectedPageInfo span {
+.selectedPageInfo span {
     color: rgba(29, 78, 216, 255);
     font-weight: bold;
 }
@@ -152,7 +152,7 @@ selectedPageInfo span {
     text-align: center;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: max-content;
 }
 .ring{
     position: absolute;
