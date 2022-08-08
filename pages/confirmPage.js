@@ -1,7 +1,8 @@
 import StyleClasses from "../styles/Home.module.css";
 import { useRouter } from 'next/router'
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 const FinalPage = () => {
+  const [loggedUser, setUser] = useState({})
   const router = useRouter()
   const routerData = router?.query?.data?? ""
   const userObject = router?.query?.user?? ""
@@ -14,6 +15,7 @@ const FinalPage = () => {
       if (response && !response.error) {
         /* handle the result */
         console.log(response)
+        setUser(response)
       }})
 
   }, []);
@@ -24,7 +26,7 @@ const FinalPage = () => {
   return (
     <div className={StyleClasses.mainContainer}>
       <div className={StyleClasses.pageSelectionContainer}>
-        {/*<h3>Hi, {user}</h3>*/}
+        <h3>Hi, {loggedUser.name}</h3>
         <div>
           {page.name}
         </div>
