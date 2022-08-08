@@ -29,7 +29,7 @@ const FinalPage = () => {
       <div className={StyleClasses.pageInfoContainer}>
         <h2>Hi, {loggedUser.name}</h2>
         <div className={StyleClasses.selectedPageInfo}>
-          {page.name} page is selected
+          <span>{page.name}</span> page is selected
         </div>
         {isLoading && <>
           <div className={StyleClasses.center}>
