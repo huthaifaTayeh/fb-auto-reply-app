@@ -66,7 +66,8 @@ export default function Home() {
   // login page
   else return <div className={StyleClasses.fbLoginContainer}>
     <div className={StyleClasses.fbLoginBtnContainer}>
-      <button onClick={handleLogin}>login</button>
+      <div className={StyleClasses.greyCircle} />
+      <button onClick={handleLogin}>login with facebook</button>
     </div>
   </div>;
 }
