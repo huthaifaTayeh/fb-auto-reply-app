@@ -30,7 +30,8 @@
 .pageInfoContainer h2 {
   width: 100%;
   color: black;
-  padding: 0.5em 1.2em;
+  padding: 0.5em 1.0em 0 1.0em;
+  margin-bottom: 5px;
 }
 .pagesView{
   width: 100%;
@@ -122,7 +123,7 @@
 .selectedPageInfo{
   width: 100%;
   padding: 0.5em 2em;
-  font-size: 1.18em;
+  font-size: 1.0em;
 }
 @media (prefers-color-scheme: dark) {
   .fbLoginBtnContainer{
