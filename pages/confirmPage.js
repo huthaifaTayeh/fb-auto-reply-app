@@ -10,9 +10,6 @@ const FinalPage = () => {
   console.log(user)
 
   useEffect(() => {
-    FB.ui(response => {
-      console.log('ui is ', response)
-    })
     FB.getLoginStatus((response) => {
       console.log(FB)
     });
