@@ -21,9 +21,10 @@
   padding: 0.5em 1.5em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   row-gap: 0.5em;
+  flex-grow: 0.8;
 }
 .pageRow{
   width: 100%;
