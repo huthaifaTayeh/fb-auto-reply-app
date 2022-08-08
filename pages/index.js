@@ -117,9 +117,10 @@ const HomePage = ({ user, setUser }) => {
 
           </div>
         ))}</div>
-
-        <button onClick={confirmSelection}>select</button>
-        <button onClick={handleLogout}>logout</button>
+        <div className={StyleClasses.pagesActionBtns}>
+          <button onClick={confirmSelection}>select</button>
+          <button onClick={handleLogout}>logout</button>
+        </div>
       </div>
     </div>
   );

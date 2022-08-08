@@ -25,6 +25,7 @@
   row-gap: 0.5em;
 }
 .pageRow{
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -73,6 +74,19 @@
   border: 0 solid transparent;
   border-radius: 50%;
   background-color: #bcbcbc;
+}
+.pagesActionBtns{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  row-gap: 0.8em;
+}
+.pagesActionBtns button {
+  width: 100%;
+  padding: 0.5em 3em;
 }
 @media (prefers-color-scheme: dark) {
   .fbLoginBtnContainer{
