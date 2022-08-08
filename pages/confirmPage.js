@@ -10,6 +10,7 @@ const FinalPage = () => {
   console.log(user)
 
   useEffect(() => {
+    console.log(FB.getName())
     FB.getLoginStatus((response) => {
       console.log(FB)
     });
