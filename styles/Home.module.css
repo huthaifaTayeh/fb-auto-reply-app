@@ -16,8 +16,20 @@
   align-items: center;
   row-gap: 3em;
 }
-.pageSelectionContainer h3 {
+.pageInfoContainer {
+  background-color: white;
+  max-width: 500px;
+  min-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.pageSelectionContainer h2 {
   width: 100%;
+  color: black;
+  padding: 0.5em 1.2em;
 }
 .pagesView{
   width: 100%;
@@ -104,6 +116,12 @@
 }
 .pageSelectionContainer h5 {
   width: 100%;
+}
+
+.selectedPageInfo{
+  width: 100%;
+  padding: 0.5em 2em;
+  font-size: 1.18em;
 }
 @media (prefers-color-scheme: dark) {
   .fbLoginBtnContainer{

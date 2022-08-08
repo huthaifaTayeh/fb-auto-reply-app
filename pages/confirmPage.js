@@ -25,9 +25,9 @@ const FinalPage = () => {
     console.log('Subscribed') }
   return (
     <div className={StyleClasses.mainContainer}>
-      <div className={StyleClasses.pageSelectionContainer}>
-        <h3>Hi, {loggedUser.name}</h3>
-        <div>
+      <div className={StyleClasses.pageInfoContainer}>
+        <h2>Hi, {loggedUser.name}</h2>
+        <div className={StyleClasses.selectedPageInfo}>
           {page.name}
         </div>
       </div>
