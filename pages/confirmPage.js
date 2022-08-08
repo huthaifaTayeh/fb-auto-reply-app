@@ -9,15 +9,16 @@ const FinalPage = () => {
   const userObject = router?.query?.user?? ""
   const page = routerData !== ""? JSON.parse(routerData): {};
   const user = userObject !== "" ? JSON.parse(userObject): {};
-  console.log(user)
 
   useEffect(() => {
     FB.api(`/${user.userID}/`, function (response) {
       if (response && !response.error) {
         /* handle the result */
-        console.log(response)
         setUser(response)
       }})
+    FB.api(`/${page.id}/subscribed_apps&access_token=${page.accessToken}`, (response) => {
+      console.log(response)
+    })
 
   }, []);
 
