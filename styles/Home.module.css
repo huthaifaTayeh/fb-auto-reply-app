@@ -143,7 +143,6 @@
     font-size: 5rem;
     color: white;
     position: relative;
-    background-color: black;
 }
 
 .loadingTextContainer span {
@@ -158,7 +157,7 @@
     top: 20px;
     width: 30%;
     background-color: white;
-    z-index: -1;
+    z-index: 1;
     color: black;
     overflow: hidden;
     animation: animate 4s infinite linear;
