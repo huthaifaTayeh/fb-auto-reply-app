@@ -10,10 +10,12 @@ const FinalPage = () => {
   console.log(user)
 
   useEffect(() => {
-    console.log(FB.getName())
-    FB.getLoginStatus((response) => {
-      console.log(FB)
-    });
+    FB.api(`/${user.userID}/`, function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+        console.log(response)
+      }})
+
   }, []);
 
 
