@@ -153,6 +153,7 @@
     justify-content: center;
     align-items: center;
     height: max-content;
+    margin-top: 5.5em;
 }
 .ring{
     position: absolute;
