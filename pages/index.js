@@ -109,9 +109,9 @@ const HomePage = ({ user, setUser }) => {
         <h5>Select your facebook page</h5>
         <div className={StyleClasses.pagesView}>
           {pages.map((page) => (
-          <div key={page.id} className={StyleClasses.pageRow}>
-            <span className={selectedPage?.id === page.id? StyleClasses.selectedPage: ""} />
-            <p className={selectedPage?.id === page.id? StyleClasses.selectedPage: ""} onClick={() => setSelectedPage(page.id)}>
+          <div key={page.id} className={StyleClasses.pageRow} onClick={() => setSelectedPage(page.id)}>
+            <span className={selectedPage === page.id? StyleClasses.selectedPage: ""} />
+            <p className={selectedPage === page.id? StyleClasses.selectedPage: ""} >
               {page.name}
             </p>
 
