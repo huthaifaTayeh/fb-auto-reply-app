@@ -17,6 +17,7 @@
   row-gap: 3em;
 }
 .pageInfoContainer {
+  color: black;
   background-color: white;
   max-width: 500px;
   min-width: 400px;
@@ -26,7 +27,7 @@
   justify-content: flex-start;
   align-items: center;
 }
-.pageSelectionContainer h2 {
+.pageInfoContainer h2 {
   width: 100%;
   color: black;
   padding: 0.5em 1.2em;
