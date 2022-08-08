@@ -99,7 +99,8 @@ const HomePage = ({ user, setUser }) => {
   }, []);
 
   const confirmSelection = () => { 
-    // TODO show subscribe page 
+    // TODO show subscribe page
+    return <FinalPage user={user} page={pages.find(page => page.id === selectedPage)} />
   }
 
   return (
@@ -127,9 +128,17 @@ const HomePage = ({ user, setUser }) => {
 };
 
 // // TODO complete component
-// const FinalPage = () => {
-//   const subscribePageToApp = () => {  }
-//   return (
-//
-//   )
-//  }
+const FinalPage = ({user, page}) => {
+  const subscribePageToApp = () => {  }
+  console.log(page)
+  return (
+    <div className={StyleClasses.mainContainer}>
+      <div className={StyleClasses.pageSelectionContainer}>
+        <h3>Hi, {user}</h3>
+        <div>
+          {page.name}
+        </div>
+      </div>
+    </div>
+  )
+ }

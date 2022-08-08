@@ -16,6 +16,9 @@
   align-items: center;
   row-gap: 3em;
 }
+.pageSelectionContainer h3 {
+  width: 100%;
+}
 .pagesView{
   width: 100%;
   padding: 0.5em 1.5em;
