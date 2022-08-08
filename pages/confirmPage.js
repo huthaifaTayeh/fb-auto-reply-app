@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 const FinalPage = () => {
   const router = useRouter()
   const routerData = router.query.data
-  // const page = JSON.parse(router.query.data);
-  console.log(routerData)
+  const page = JSON.parse(routerData);
+  console.log(page)
   const subscribePageToApp = () => {
     console.log('Subscribed') }
   return (
