@@ -116,10 +116,10 @@ const HomePage = ({ user, setUser }) => {
   );
 };
 
-// TODO complete component
-const FinalPage = () => { 
-  const subscribePageToApp = () => {  }
-  return (
-
-  )
- }
+// // TODO complete component
+// const FinalPage = () => {
+//   const subscribePageToApp = () => {  }
+//   return (
+//
+//   )
+//  }
