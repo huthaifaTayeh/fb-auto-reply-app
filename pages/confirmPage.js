@@ -2,8 +2,8 @@ import StyleClasses from "../styles/Home.module.css";
 import { useRouter } from 'next/router'
 const FinalPage = () => {
   const router = useRouter()
-  console.log(router)
-  // const page = JSON.parse(router.query.data);
+  const page = JSON.parse(router.query.data);
+  console.log(page)
   const subscribePageToApp = () => {
     console.log('Subscribed') }
   return (
