@@ -141,7 +141,7 @@
 
 .loadingTextContainer {
     font-size: 5rem;
-    color: white;
+    color: black;
     position: relative;
 }
 
@@ -156,9 +156,9 @@
     left: 0;
     top: 20px;
     width: 30%;
-    background-color: white;
+    background-color: black;
     z-index: -1;
-    color: black;
+    color: white;
     overflow: hidden;
     animation: animate 4s infinite linear;
 }

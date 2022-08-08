@@ -31,8 +31,7 @@ const FinalPage = () => {
         <div className={StyleClasses.selectedPageInfo}>
           {page.name} page is selected
         </div>
-        {isLoading && <div className={StyleClasses.loadingTextContainer}><span>Subscribing auto-bot app
-          to {page.name} page</span></div>
+        {isLoading && <div className={StyleClasses.loadingTextContainer}><span>Loading</span></div>
           }
       </div>
     </div>
