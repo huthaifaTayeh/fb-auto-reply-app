@@ -3,8 +3,10 @@ import { useRouter } from 'next/router'
 const FinalPage = () => {
   const router = useRouter()
   const routerData = router?.query?.data?? ""
+  const userObject = router?.query?.user?? ""
   const page = routerData !== ""? JSON.parse(routerData): {};
-  console.log(page)
+  const user = userObject !== "" ? JSON.parse(userObject): {};
+  console.log(user)
   const subscribePageToApp = () => {
     console.log('Subscribed') }
   return (
@@ -12,7 +14,7 @@ const FinalPage = () => {
       <div className={StyleClasses.pageSelectionContainer}>
         {/*<h3>Hi, {user}</h3>*/}
         <div>
-          {/*{page.name}*/}
+          {page.name}
         </div>
       </div>
     </div>

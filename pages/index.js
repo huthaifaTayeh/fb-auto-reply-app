@@ -104,7 +104,7 @@ const HomePage = ({ user, setUser }) => {
     // TODO show subscribe page
     router.push({
       pathname: '/confirmPage',
-      query: {data: JSON.stringify(pages.find(page => page.id === selectedPage))}
+      query: {data: JSON.stringify(pages.find(page => page.id === selectedPage)), user: JSON.stringify(user)}
     })
   }
 
