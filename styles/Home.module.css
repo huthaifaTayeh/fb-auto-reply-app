@@ -50,6 +50,7 @@
 }
 .selectedPageFont{
   color: rgba(29,78,216,255) !important;
+  font-weight: bold !important;
 
 }
 
