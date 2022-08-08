@@ -64,7 +64,7 @@ export default function Home() {
     // home page
     return <HomePage user={user} setUser={setUser} />;
   // login page
-  else return <div className={StyleClasses.fbLoginContainer}>
+  else return <div className={StyleClasses.mainContainer}>
     <div className={StyleClasses.fbLoginBtnContainer}>
       <div className={StyleClasses.greyCircle} />
       <button onClick={handleLogin}>login with facebook</button>
@@ -103,22 +103,25 @@ const HomePage = ({ user, setUser }) => {
   }
 
   return (
-    <>
+    <div className={StyleClasses.mainContainer}>
       {/* TODO design page selection */}
-      {pages.map((page) => (
-        <div key={page.id}>
-          <p
-            style={{ color: selectedPage?.id === page.id ? 'blue' : 'black' }}
-            onClick={() => setSelectedPage(page.id)}
-          >
-            {page.name}
-          </p>
-        </div>
-      ))}
+      <div className={StyleClasses.pageSelectionContainer}>
+        <h6>Select your facebook page</h6>
+        <div className={StyleClasses.pagesView}>
+          {pages.map((page) => (
+          <div key={page.id} className={StyleClasses.pageRow}>
+            <span className={selectedPage?.id === page.id? StyleClasses.selectedPage: ""} />
+            <p className={selectedPage?.id === page.id? StyleClasses.selectedPage: ""} onClick={() => setSelectedPage(page.id)}>
+              {page.name}
+            </p>
 
-      <button onClick={confirmSelection}>select</button>
-      <button onClick={handleLogout}>logout</button>
-    </>
+          </div>
+        ))}</div>
+
+        <button onClick={confirmSelection}>select</button>
+        <button onClick={handleLogout}>logout</button>
+      </div>
+    </div>
   );
 };
 
