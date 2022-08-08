@@ -46,10 +46,10 @@
   background-color: #ffffff;
 }
 .selectedPage{
-  background-color: rgba(29,78,216,255);
+  background-color: rgba(29,78,216,255) !important;
 }
 .selectedPageFont{
-  color: rgba(29,78,216,255);
+  color: rgba(29,78,216,255) !important;
 
 }
 
