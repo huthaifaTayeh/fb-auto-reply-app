@@ -155,12 +155,34 @@
     height: max-content;
     margin-top: 5.5em;
 }
+.success{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    margin-top: 5.5em;
+}
 .ring{
     position: absolute;
     width: 200px;
     height: 200px;
     border-radius: 50%;
     animation: ring 2s linear infinite;
+}
+.success span{
+    color: #737373;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 200px;
+}
+.ringSuccess{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid green;
 }
 @keyframes ring {
     0%{

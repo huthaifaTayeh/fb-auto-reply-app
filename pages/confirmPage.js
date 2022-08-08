@@ -48,12 +48,15 @@ const FinalPage = () => {
         <div className={StyleClasses.selectedPageInfo}>
           <span>{page.name}</span> page is selected
         </div>
-        {isLoading && <>
+        {isLoading? <>
           <div className={StyleClasses.center}>
             <div className={StyleClasses.ring}></div>
             <span>Subscribing...</span>
           </div>
-        </>
+        </>: <div className={StyleClasses.success}>
+          <div className={StyleClasses.ringSuccess}></div>
+          <span>Success!</span>
+        </div>
           }
       </div>
     </div>
