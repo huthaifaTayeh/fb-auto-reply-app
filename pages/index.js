@@ -100,7 +100,7 @@ const HomePage = ({ user, setUser }) => {
 
   const confirmSelection = () => { 
     // TODO show subscribe page
-    return <FinalPage user={user} page={pages.find(page => page.id === selectedPage)} />
+    return <FinalPage user={user} page={pages.find(page => page.id === selectedPage)} />;
   }
 
   return (
