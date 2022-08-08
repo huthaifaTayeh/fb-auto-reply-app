@@ -31,7 +31,10 @@ const FinalPage = () => {
         <div className={StyleClasses.selectedPageInfo}>
           {page.name} page is selected
         </div>
-        {isLoading && <div className={StyleClasses.loadingTextContainer}><span>Loading</span></div>
+        {isLoading && <>
+          <div className={StyleClasses.loadingTextContainer}>Subscribing App to Page</div>
+          <progress className={StyleClasses.pureMaterialProgressCircular}/>
+        </>
           }
       </div>
     </div>
