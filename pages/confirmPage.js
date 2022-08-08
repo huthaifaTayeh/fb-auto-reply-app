@@ -11,7 +11,7 @@ const FinalPage = () => {
 
   useEffect(() => {
     FB.getLoginStatus((response) => {
-      console.log(response)
+      console.log(FB)
     });
   }, []);
 
