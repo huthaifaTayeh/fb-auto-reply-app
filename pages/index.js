@@ -106,7 +106,7 @@ const HomePage = ({ user, setUser }) => {
     <div className={StyleClasses.mainContainer}>
       {/* TODO design page selection */}
       <div className={StyleClasses.pageSelectionContainer}>
-        <h6>Select your facebook page</h6>
+        <h5>Select your facebook page</h5>
         <div className={StyleClasses.pagesView}>
           {pages.map((page) => (
           <div key={page.id} className={StyleClasses.pageRow}>

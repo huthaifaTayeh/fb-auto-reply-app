@@ -6,6 +6,7 @@
   align-items: center;
 }
 .pageSelectionContainer {
+  background-color: white;
   max-width: 500px;
   min-width: 400px;
   height: 100vh;
@@ -28,11 +29,13 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   column-gap: 0.8em;
   border: none;
   border-bottom: 1px solid #000000;
+  padding-inline-start: 0.55em;
+  color: black;
 }
 .pageRow span {
   width: 0.5em;
@@ -89,6 +92,9 @@
   padding: 0.5em 3em;
   background-color: rgba(29,78,216,255);
 
+}
+.pageSelectionContainer h5 {
+  width: 100%;
 }
 @media (prefers-color-scheme: dark) {
   .fbLoginBtnContainer{
