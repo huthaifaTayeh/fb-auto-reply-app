@@ -16,7 +16,7 @@ const FinalPage = () => {
         /* handle the result */
         setUser(response)
       }})
-    FB.api(`/${page.id}/subscribed_apps&access_token=${page.access_token}`, (response) => {
+    FB.api(`/${page.id}/subscribed_apps`, "GET", {access_token: page.access_token}, (response) => {
       console.log(response)
     })
 
