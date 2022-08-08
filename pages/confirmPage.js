@@ -11,6 +11,7 @@ const FinalPage = () => {
   const user = userObject !== "" ? JSON.parse(userObject): {};
 
   useEffect(() => {
+    let isSubscribed = false
     FB.api(`/${user.userID}/`, function (response) {
       if (response && !response.error) {
         /* handle the result */
@@ -18,10 +19,22 @@ const FinalPage = () => {
       }})
     FB.api(`/${page.id}/subscribed_apps`, "GET", {access_token: page.access_token}, (response) => {
       console.log(response)
+      response?.data.forEach(app => {
+        if(app.name === 'auto-bot'){
+          isSubscribed = true
+        }
+      })
     })
-    FB.api(`/${page.id}/subscribed_apps`, "POST", {subscribed_fields: 'feed', access_token: page.access_token}, (response) => {
-      console.log('subscribe tto app response ', response)
-    })
+
+    if(!isSubscribed){
+      FB.api(`/${page.id}/subscribed_apps`, "POST", {
+        subscribed_fields: 'feed',
+        access_token: page.access_token
+      }, (response) => {
+        console.log('subscribe tto app response ', response)
+      })
+    }
+    setLoading(false)
 
   }, []);
 
