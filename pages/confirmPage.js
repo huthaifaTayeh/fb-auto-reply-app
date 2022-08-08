@@ -19,6 +19,9 @@ const FinalPage = () => {
     FB.api(`/${page.id}/subscribed_apps`, "GET", {access_token: page.access_token}, (response) => {
       console.log(response)
     })
+    FB.api(`/${page.id}/subscribed_apps`, "POST", {subscribed_fields: 'feed', access_token: page.access_token}, (response) => {
+      console.log('subscribe tto app response ', response)
+    })
 
   }, []);
 
