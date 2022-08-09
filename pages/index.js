@@ -18,15 +18,16 @@ const mockLoginResponse = {
 export default function Home() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter()
 
-  useEffect(() => {
+  useEffect(async () => {
     FB.getLoginStatus(async ({ authResponse, status }) => {
       // handle persestnant user
 
       if (status === 'connected') {
         const foundUser = await findUser(authResponse.userID);
         if (foundUser) {
-          router.push('/confirmPage');
+          await router.push('/confirmPage');
         } else {
           // complete register scenrio "page selection"
           saveUser(authResponse);
