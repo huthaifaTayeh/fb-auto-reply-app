@@ -1,224 +1,234 @@
 .mainContainer {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mainContainer form input {
+  width: 100%;
 }
 
 .pageSelectionContainer {
-    background-color: white;
-    max-width: 500px;
-    min-width: 400px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 3em;
+  background-color: white;
+  max-width: 500px;
+  min-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 3em;
 }
 
 .pageInfoContainer {
-    color: black;
-    background-color: white;
-    max-width: 500px;
-    min-width: 400px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  color: black;
+  background-color: white;
+  max-width: 500px;
+  min-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .pageInfoContainer h2 {
-    width: 100%;
-    color: black;
-    padding: 0.5em 1.0em 0 1.0em;
-    margin-bottom: 5px;
+  width: 100%;
+  color: black;
+  padding: 0.5em 1em 0 1em;
+  margin-bottom: 5px;
 }
 
 .pagesView {
-    width: 100%;
-    padding: 0.5em 1.5em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    row-gap: 0.5em;
-    flex-grow: 0.8;
+  width: 100%;
+  padding: 0.5em 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 0.5em;
+  flex-grow: 0.8;
 }
 
 .pageRow {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    column-gap: 0.8em;
-    border: none;
-    border-bottom: 1px solid #000000;
-    padding-inline-start: 0.55em;
-    color: black;
-    cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.8em;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding-inline-start: 0.55em;
+  color: black;
+  cursor: pointer;
 }
 
 .pageRow span {
-    width: 0.5em;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    border: 1px solid #bcbcbc;
-    background-color: #ffffff;
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid #bcbcbc;
+  background-color: #ffffff;
 }
 
 .selectedPage {
-    background-color: rgba(29, 78, 216, 255) !important;
+  background-color: rgba(29, 78, 216, 255) !important;
 }
 
 .selectedPageFont {
-    color: rgba(29, 78, 216, 255) !important;
-    font-weight: bold !important;
-
+  color: rgba(29, 78, 216, 255) !important;
+  font-weight: bold !important;
 }
 
 .fbLoginBtnContainer {
-    max-width: 500px;
-    min-width: 400px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 3em;
+  max-width: 500px;
+  min-width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 3em;
 }
 
 .fbLoginBtnContainer button {
-    cursor: pointer;
-    font-size: 1.2em;
-    padding: 0.5em 3em;
-    width: max-content;
-    max-width: 460px;
-    min-width: 200px;
-    background-color: rgba(29, 78, 216, 255);
-    border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.2em;
+  padding: 0.5em 3em;
+  width: max-content;
+  max-width: 460px;
+  min-width: 200px;
+  background-color: rgba(29, 78, 216, 255);
+  border: none;
 }
 
 .greyCircle {
-    width: 3em;
-    min-width: 100px;
-    max-width: 300px;
-    aspect-ratio: 1;
-    border: 0 solid transparent;
-    border-radius: 50%;
-    background-color: #bcbcbc;
+  width: 3em;
+  min-width: 100px;
+  max-width: 300px;
+  aspect-ratio: 1;
+  border: 0 solid transparent;
+  border-radius: 50%;
+  background-color: #bcbcbc;
 }
 
 .pagesActionBtns {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 !important;
-    row-gap: 0.8em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  row-gap: 0.8em;
 }
 
 .pagesActionBtns button {
-    width: 80%;
-    padding: 0.5em 3em;
-    background-color: rgba(29, 78, 216, 255);
-
+  width: 80%;
+  padding: 0.5em 3em;
+  background-color: rgba(29, 78, 216, 255);
 }
 
 .pageSelectionContainer h5 {
-    width: 100%;
+  width: 100%;
 }
 
 .selectedPageInfo {
-    width: 100%;
-    padding: 0.5em 2em;
-    font-size: 1.0em;
+  width: 100%;
+  padding: 0.5em 2em;
+  font-size: 1em;
 }
 .selectedPageInfo span {
-    color: rgba(29, 78, 216, 255);
-    font-weight: bold;
+  color: rgba(29, 78, 216, 255);
+  font-weight: bold;
 }
 
 .loadingTextContainer {
-    font-size: 2.5rem;
-    color: black;
+  font-size: 2.5rem;
+  color: black;
 }
-.center{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-    margin-top: 5.5em;
+.center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  margin-top: 5.5em;
 }
-.success{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    height: max-content;
-    margin-top: 5.5em;
+.success {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  margin-top: 5.5em;
 }
-.ring{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    animation: ring 2s linear infinite;
+.ring {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: ring 2s linear infinite;
 }
-.success span{
-    color: #737373;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 200px;
+.success span {
+  color: #737373;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 200px;
 }
-.ringSuccess{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 2px solid green;
+.ringSuccess {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid green;
 }
 @keyframes ring {
-    0%{
-        transform: rotate(0deg);
-        box-shadow: 1px 5px 2px #e65c00;
-    }
-    50%{
-        transform: rotate(180deg);
-        box-shadow: 1px 5px 2px #18b201;
-    }
-    100%{
-        transform: rotate(360deg);
-        box-shadow: 1px 5px 2px #0456c8;
-    }
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px #e65c00;
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px #18b201;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px #0456c8;
+  }
 }
-.ring:before{
-    position: absolute;
-    content: '';
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(255,255,255,.3);
+.ring:before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
-.center span{
-    color: #737373;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 200px;
-    animation: text 3s ease-in-out infinite;
+.center span {
+  color: #737373;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 200px;
+  animation: text 3s ease-in-out infinite;
 }
 @keyframes text {
-    50%{
-        color: black;
-    }
+  50% {
+    color: black;
+  }
 }
-

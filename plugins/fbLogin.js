@@ -12,7 +12,7 @@ export const renderFbLoginPlugin = () => {
         nonce='z2FdTQwI'
       ></script>
       <div id='status'></div>
-      <Script strategy='lazyOnload'>{`
+      <Script id='facebook-auto-bot-app-init' strategy='lazyOnload'>{`
         let user_id,
         access_token;
         window.fbAsyncInit = function () {
