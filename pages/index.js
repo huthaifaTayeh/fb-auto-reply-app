@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
-import { getFbPages } from '../utils/APIs';
+import {
+  getFbPages,
+  getSubscribedPages,
+  subscribedPageToApp,
+} from '../utils/APIs';
 import StyleClasses from '../styles/Home.module.css';
 import { useRouter } from 'next/router';
 import axios from 'axios';
