@@ -2,7 +2,8 @@ import React from 'react'
 import StyleClasses from "../styles/Home.module.css";
 import axios from "axios";
 import {baseURL} from "../config";
-import { withRouter } from 'next/router'
+import Router from 'next/router'
+
 
 class Login extends React.Component {
   constructor(props) {
@@ -17,9 +18,9 @@ class Login extends React.Component {
           // check if user is in Database
           const foundUser = await findUser(userID);
           if (foundUser) {
-            await this.props.router.push('/confirmPage');
+            await Router.push('/confirmPage');
           } else {
-            await this.props.router.push('/')
+            await Router.push('/')
           }
         } else {
           // The person is not logged into your webpage or we are unable to tell.
@@ -52,7 +53,7 @@ class Login extends React.Component {
 
   }
 }
-export default withRouter(Login)
+export default Login
 
 async function findUser(fb_user_id) {
   try {
