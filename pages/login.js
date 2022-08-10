@@ -15,7 +15,7 @@ class Login extends React.Component {
         if (status === 'connected') {
           const { accessToken, userID } = authResponse;
           // check if user is in Database
-          const foundUser = await this.findUser(userID);
+          const foundUser = await findUser(userID);
           if (foundUser) {
             await this.props.router.push('/confirmPage');
           } else {
@@ -38,20 +38,6 @@ class Login extends React.Component {
     );
   };
 
-  async findUser(fb_user_id) {
-    try {
-      // make api call to get already existing user or create one
-      const res = await axios.get(
-        `${baseURL}/api/users?fb_user_id=${fb_user_id}`
-      );
-      const {user, access_token} = res.data.data;
-      localStorage.setItem('access_token', access_token);
-      return user;
-    } catch (err) {
-      // alert('something went wrong, check logs');
-      console.log(err);
-    }
-  };
 
 
   render() {
@@ -67,3 +53,18 @@ class Login extends React.Component {
   }
 }
 export default withRouter(Login)
+
+async function findUser(fb_user_id) {
+  try {
+    // make api call to get already existing user or create one
+    const res = await axios.get(
+      `${baseURL}/api/users?fb_user_id=${fb_user_id}`
+    );
+    const {user, access_token} = res.data.data;
+    localStorage.setItem('access_token', access_token);
+    return user;
+  } catch (err) {
+    // alert('something went wrong, check logs');
+    console.log(err);
+  }
+};
