@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {baseURL} from "../config";
-import { withRouter } from 'next/router'
+import {withRouter} from 'next/router'
 import StyleClasses from "../styles/Home.module.css";
 import Button from "../components/Button";
 import {getFbPages, getSubscribedPages, subscribedPageToApp} from "../utils/APIs";
@@ -18,33 +18,39 @@ class Home extends React.Component {
   }
 
   UNSAFE_componentWillMount() {
-    let fbNotLoaded = true;
-    while (fbNotLoaded) {
-      setTimeout(() => {
-        if (window && window.FB !== 'undefined') {
-          fbNotLoaded = false
-          console.log("Is facebook not loaded? ", fbNotLoaded)
-
-        }
-      }, 500)
-    }
-    FB.getLoginStatus(async ({authResponse, status}) => {
-      // handle persestnant user
-      if (status === 'connected') {
-        const foundUser = await this.findUser(authResponse.userID);
-        if (foundUser) {
-          await this.props.router.push('/confirmPage');
-        } else {
-          // complete register scenrio "page selection"
-          this.saveUser(authResponse);
-          await this.fetchPages(authResponse.userID, authResponse.accessToken)
-          // setIsLoading(false);
-        }
+    // let fbNotLoaded = true;
+    // while (fbNotLoaded) {
+    //   setTimeout(() => {
+    //     if (window && window.FB !== 'undefined') {
+    //       fbNotLoaded = false
+    //       console.log("Is facebook not loaded? ", fbNotLoaded)
+    //
+    //     }
+    //   }, 500)
+    // }
+    setTimeout(() => {
+      if (window && FB) {
+        FB.getLoginStatus(async ({authResponse, status}) => {
+          // handle persestnant user
+          if (status === 'connected') {
+            const foundUser = await this.findUser(authResponse.userID);
+            if (foundUser) {
+              await this.props.router.push('/confirmPage');
+            } else {
+              // complete register scenrio "page selection"
+              this.saveUser(authResponse);
+              await this.fetchPages(authResponse.userID, authResponse.accessToken)
+              // setIsLoading(false);
+            }
+          } else {
+            await this.props.router.push('/login')
+          }
+          this.setState(state => ({...state, isLoading: false}))
+        });
       } else {
-        await this.props.router.push('/login')
+        location.reload();
       }
-      this.setState(state => ({...state, isLoading: false}))
-    });
+    }, 1500)
   }
 
   async findUser(fb_user_id) {
@@ -194,8 +200,8 @@ class Home extends React.Component {
     )
   }
 }
-export default withRouter(Home)
 
+export default withRouter(Home)
 
 
 // import { useEffect, useState } from 'react';
