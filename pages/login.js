@@ -9,21 +9,6 @@ class Login extends React.Component {
     super(props);
   }
 
-  async findUser(fb_user_id) {
-    try {
-      // make api call to get already existing user or create one
-      const res = await axios.get(
-        `${baseURL}/api/users?fb_user_id=${fb_user_id}`
-      );
-      const {user, access_token} = res.data.data;
-      localStorage.setItem('access_token', access_token);
-      return user;
-    } catch (err) {
-      // alert('something went wrong, check logs');
-      console.log(err);
-    }
-  };
-
   async handleLogin() {
     FB.login(
       async ({ authResponse, status }) => {
@@ -52,6 +37,23 @@ class Login extends React.Component {
       }
     );
   };
+
+  async findUser(fb_user_id) {
+    try {
+      // make api call to get already existing user or create one
+      const res = await axios.get(
+        `${baseURL}/api/users?fb_user_id=${fb_user_id}`
+      );
+      const {user, access_token} = res.data.data;
+      localStorage.setItem('access_token', access_token);
+      return user;
+    } catch (err) {
+      // alert('something went wrong, check logs');
+      console.log(err);
+    }
+  };
+
+
   render() {
     return (
       <div className={StyleClasses.mainContainer}>
