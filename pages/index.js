@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {baseURL} from "../config";
-import {useRouter} from "next/router";
+import { withRouter } from 'next/router'
 import StyleClasses from "../styles/Home.module.css";
 import Button from "../components/Button";
 import {getFbPages, getSubscribedPages, subscribedPageToApp} from "../utils/APIs";
@@ -15,10 +15,9 @@ class Home extends React.Component {
       pages: [],
       selectedPageId: null,
     }
-    this.router = useRouter()
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     let fbNotLoaded = true;
     while (fbNotLoaded) {
       setTimeout(() => {
@@ -34,7 +33,7 @@ class Home extends React.Component {
       if (status === 'connected') {
         const foundUser = await this.findUser(authResponse.userID);
         if (foundUser) {
-          await this.router.push('/confirmPage');
+          await this.props.router.push('/confirmPage');
         } else {
           // complete register scenrio "page selection"
           this.saveUser(authResponse);
@@ -42,7 +41,7 @@ class Home extends React.Component {
           // setIsLoading(false);
         }
       } else {
-        await this.router.push('/login')
+        await this.props.router.push('/login')
       }
       this.setState(state => ({...state, isLoading: false}))
     });
@@ -101,7 +100,7 @@ class Home extends React.Component {
       selectedPageObject.access_token
     );
     if (createdUser) {
-      await this.router.push({
+      await this.props.router.push({
         pathname: '/confirmPage',
       });
     } else {
@@ -195,8 +194,8 @@ class Home extends React.Component {
     )
   }
 }
+export default withRouter(Home)
 
-export default Home
 
 
 // import { useEffect, useState } from 'react';
