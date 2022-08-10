@@ -18,25 +18,30 @@ const mockLoginResponse = {
 export default function Home() {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [nullSafety, setSafety] = useState(true)
   const router = useRouter()
 
   useEffect(async () => {
-    FB.getLoginStatus(async ({ authResponse, status }) => {
-      // handle persestnant user
+    if (window && FB) {
+      FB.getLoginStatus(async ({authResponse, status}) => {
+        // handle persestnant user
 
-      if (status === 'connected') {
-        const foundUser = await findUser(authResponse.userID);
-        if (foundUser) {
-          await router.push('/confirmPage');
-        } else {
-          // complete register scenrio "page selection"
-          saveUser(authResponse);
-          // setIsLoading(false);
+        if (status === 'connected') {
+          const foundUser = await findUser(authResponse.userID);
+          if (foundUser) {
+            await router.push('/confirmPage');
+          } else {
+            // complete register scenrio "page selection"
+            saveUser(authResponse);
+            // setIsLoading(false);
+          }
         }
-      }
-      setIsLoading(false);
-    });
-  }, []);
+        setIsLoading(false);
+      });
+    } else {
+      setTimeout(() => {setSafety(null)}, 1000)
+    }
+  }, [nullSafety]);
 
   const handleLogin = () => {
     // console.log(FB);
