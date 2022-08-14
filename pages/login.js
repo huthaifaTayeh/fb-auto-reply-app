@@ -1,9 +1,9 @@
-import React from 'react'
-import StyleClasses from "../styles/Home.module.css";
-import axios from "axios";
-import {baseURL} from "../config";
-import Router from 'next/router'
-
+import React from 'react';
+import StyleClasses from '../styles/Home.module.css';
+import axios from 'axios';
+import { baseURL } from '../config';
+import Router from 'next/router';
+import Link from 'next/link';
 
 class Login extends React.Component {
   constructor(props) {
@@ -18,42 +18,44 @@ class Login extends React.Component {
           // check if user is in Database
           const foundUser = await findUser(userID);
           if (foundUser) {
-            await Router.push('/confirmPage');
+            await Router.push('/');
           } else {
-            await Router.push('/')
+            location.href = '/register';
+            await Router.push('/register');
           }
         } else {
           // The person is not logged into your webpage or we are unable to tell.
-          alert("Unexpected error happened!")
+          alert('Unexpected error happened!');
         }
       },
       {
         scope: [
-          'pages_show_list',
+          '',
           'pages_messaging',
           'pages_read_engagement',
+          'pages_show_list',
           'pages_manage_metadata',
           'public_profile',
+          'email',
         ],
       }
     );
-  };
-
-
+  }
 
   render() {
     return (
       <div className={StyleClasses.mainContainer}>
         <div className={StyleClasses.fbLoginBtnContainer}>
-          <div className={StyleClasses.greyCircle} />
+          <Link href={'/'}>
+            <div className={StyleClasses.greyCircle} />
+          </Link>
           <button onClick={this.handleLogin}>login with facebook</button>
         </div>
       </div>
     );
-
   }
 }
-export default Login
+export default Login;
 
 async function findUser(fb_user_id) {
   try {
@@ -61,11 +63,11 @@ async function findUser(fb_user_id) {
     const res = await axios.get(
       `${baseURL}/api/users?fb_user_id=${fb_user_id}`
     );
-    const {user, access_token} = res.data.data;
+    const { user, access_token } = res.data.data;
     localStorage.setItem('access_token', access_token);
     return user;
   } catch (err) {
     // alert('something went wrong, check logs');
     console.log(err);
   }
-};
+}
