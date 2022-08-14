@@ -23,4 +23,16 @@ export const mockPages = [
   },
 ];
 
-export const appName = 'auto-bot';
+export const appName = 'vetrina-bot';
+
+export const loginPermissionScope = [
+  // default
+  'public_profile',
+  'email',
+  // to send message from server
+  'pages_messaging',
+  // to list user pages and able to subscripe to webhook
+  'pages_show_list',
+  'pages_manage_metadata',
+  'pages_read_engagement',
+];

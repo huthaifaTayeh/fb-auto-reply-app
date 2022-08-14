@@ -8,7 +8,7 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 * {
@@ -21,6 +21,7 @@ a {
   width: max-content;
   max-width: 460px;
   min-width: 200px;
+  border-radius: 15px;
   background-color: rgba(29, 78, 216, 255);
   border: none;
   color: white;
@@ -46,4 +47,37 @@ label {
     color: white;
     background: black;
   }
+}
+
+.flex-v {
+  display: flex;
+  flex-direction: column;
+}
+.flex-r {
+  display: flex;
+  flex-direction: row;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.primary {
+  background-color: rgba(29, 78, 216, 255);
+  border: none;
+  color: white;
+}
+
+.disabled {
+  border: none;
+  color: gray;
 }

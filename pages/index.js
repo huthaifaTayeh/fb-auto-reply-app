@@ -1,81 +1,51 @@
-import StyleClasses from '../styles/Home.module.css';
-import Router, { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
-import Button from '../components/Button';
-import axios from 'axios';
-import { baseURL } from '../config';
-import Link from 'next/link';
+import React, { useEffect } from 'react';
+import { useAuth, AUTH_STATES } from '../context/auth.context';
+import { findUser } from '../utils/APIs';
+// pages import
+import LoadingPage from '../components/pages/LoadingPage';
+import LoginPage from '../components/pages/LoginPage';
+import RegisterPage from '../components/pages/RegisterPage';
+import HomePage from '../components/pages/HomePage';
 
-const FinalPage = (props) => {
-  const { dbUser, fbUser } = props;
-
-  // TODO we need user and facebook info from facebook
-  // we can use 'me' request to access info
-  useEffect(() => {}, []);
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const reply = e.target[0]?.value;
-
-    try {
-      // make api call to update config
-      const res = await axios.put(
-        `${baseURL}/api/pages/config`,
-        {
-          newConfig: {
-            reply,
-          },
-        },
-        {
-          headers: {
-            // TODO add access token here
-            authorization: `Bearer ${localStorage.getItem('access_token')}`,
-          },
-        }
-      );
-      // TODO update page state with new config
-    } catch (err) {
-      alert('something went wrong, check logs');
-      console.log(err);
-    }
-  };
-  return (
-    <div className={StyleClasses.mainContainer}>
-      <div className={StyleClasses.pageInfoContainer}>
-        <h2>Hi, FixedName</h2>
-        <div className={StyleClasses.selectedPageInfo}>
-          <span>FixedPageName</span> page is selected
-        </div>
-
-        <form onSubmit={onSubmit}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {/* TODO default value from what is stored in db */}
-            <label htmlFor='reply'>
-              reply message
-              <input name='reply' placeholder='comment reply template' />
-            </label>
-            {/* TODO later we need input to specify keywords */}
-            {/* <input/> */}
-            <Button type='submit'>Save changes</Button>
-          </div>
-        </form>
-
-        {/*         {isLoading ? (
-          <>
-            <div className={StyleClasses.center}>
-              <div className={StyleClasses.ring}></div>
-              <span>Subscribing...</span>
-            </div>
-          </>
-        ) : (
-          <div className={StyleClasses.success}>
-            <div className={StyleClasses.ringSuccess}></div>
-            <span>Success!</span>
-          </div>
-        )} */}
-        <Link href='/login'>logout</Link>
-      </div>
-    </div>
-  );
+const ActivePage = {
+  [AUTH_STATES.AUTHENTICATING]: <LoadingPage />,
+  [AUTH_STATES.NOT_LOGGED_IN]: <LoginPage />,
+  [AUTH_STATES.LOGGED_IN_WITH_FACEBOOK_ONLY]: <RegisterPage />,
+  [AUTH_STATES.LOGGED_IN]: <HomePage />,
 };
-export default FinalPage;
+
+export default function Main() {
+  const {
+    authState,
+    handleAlreadyLoggedInUser,
+    handleAlreadyLoggedWithFacebookOnly,
+    handleNoLoggedUser,
+  } = useAuth();
+
+  //   this runs when app start to check if there's loggedin user
+  useEffect(() => {
+    // waiting until fb api is ready
+    setTimeout(() => {
+      // handle remembered logged in user
+      FB.getLoginStatus(async ({ authResponse, status }) => {
+        if (status === 'connected') {
+          // user already logged in with facebook
+          // check if facebook user exist in our database
+          const foundUser = await findUser(authResponse.userID);
+          // exist in database
+          if (foundUser) {
+            handleAlreadyLoggedInUser(authResponse, foundUser);
+          } else {
+            // not exist in database
+            handleAlreadyLoggedWithFacebookOnly(authResponse);
+          }
+        } else {
+          // no user already logged in with facebook
+          handleNoLoggedUser();
+        }
+      });
+    }, 250);
+  }, []);
+
+  return ActivePage[authState];
+}
