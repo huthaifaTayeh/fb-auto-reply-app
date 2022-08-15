@@ -48,5 +48,6 @@ export default function Main() {
     }, 250);
   }, []);
 
+  // return ActivePage[AUTH_STATES.LOGGED_IN];
   return ActivePage[authState];
 }
