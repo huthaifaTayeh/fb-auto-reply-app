@@ -1,10 +1,16 @@
 import NoSSR from 'react-no-ssr';
 import { AuthProvider } from '../context/auth.context';
+import '../styles/normalize.css';
 import '../styles/globals.css';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Vetrina bot</title>
+        <link rel='icon' href='/vetrina icons-01.png' />
+      </Head>
       <script
         async
         defer

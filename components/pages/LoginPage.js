@@ -52,7 +52,7 @@ export default function LoginPage() {
         </div>
         {error && <p>{error}</p>}
       </div>
-      <a href='https://manychat.com/privacy.html'>Privacy policy</a>
+      <a href='/privacy.html'>Privacy policy</a>
     </div>
   );
 }

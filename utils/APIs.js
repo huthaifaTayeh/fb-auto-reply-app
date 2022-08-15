@@ -153,3 +153,20 @@ export const updateReply = async (reply) => {
     console.log(err);
   }
 };
+export const updateTemplate = (template) => {
+  // make api call to update config
+  return axios.put(
+    `${baseURL}/api/pages/config`,
+    {
+      newConfig: {
+        template,
+      },
+    },
+    {
+      headers: {
+        // TODO add access token here
+        authorization: `Bearer ${localStorage.getItem('access_token')}`,
+      },
+    }
+  );
+};

@@ -6,6 +6,7 @@ import LoadingPage from '../components/pages/LoadingPage';
 import LoginPage from '../components/pages/LoginPage';
 import RegisterPage from '../components/pages/RegisterPage';
 import HomePage from '../components/pages/HomePage';
+import MessageRepliesFrom from '../components/MessageRepliesFrom';
 
 const ActivePage = {
   [AUTH_STATES.AUTHENTICATING]: <LoadingPage />,
