@@ -1,6 +1,5 @@
 import NoSSR from 'react-no-ssr';
 import { AuthProvider } from '../context/auth.context';
-import '../styles/normalize.css';
 import '../styles/globals.css';
 import Head from 'next/head';
 
